@@ -4,53 +4,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 
-
-class WhoAreWeModel(models.Model):
-    status = models.BooleanField(default=False) 
-    name = models.CharField(max_length=255)
-    description = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to='who_are_we_images/')
-    user = models.ForeignKey(User,
-                            on_delete=models.SET_NULL,
-                            related_name='who_are_we_users_field',
-                            related_query_name='who_are_we_user_field',
-                            null=True)
-    created_at = models.DateTimeField(name="created_at", verbose_name="Created At", auto_now_add=True)
-    updated_at = models.DateTimeField(name="updated_at", verbose_name="Updated At", auto_now=True)
-    
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        db_table = 'who_are_we'
-        ordering = ['-created_at']
-        verbose_name = _("Who Are We")
-        verbose_name_plural = _("Who Are We")
-
-
-class CertificationModel(models.Model):
-    title = models.CharField(max_length=255)
-    status = models.BooleanField(default=False)
-    content = models.TextField()
-    user = models.ForeignKey(User, 
-                        on_delete=models.SET_NULL,
-                        related_name='certifications_users_field',
-                        related_query_name='certifications_user_field',
-                        null = True),
-    
-    created_at = models.DateTimeField(name="created_at", verbose_name="Created At", auto_now_add=True)
-    updated_at = models.DateTimeField(name="updated_at", verbose_name="Updated At", auto_now=True)
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        db_table = 'certifications'
-        ordering = ['-created_at']
-        verbose_name = "Certification" 
-        verbose_name_plural = "Certifications" 
-
-
 class FeaturedImageModel(models.Model):   
     title = models.CharField(max_length=255)
     status = models.BooleanField(default=False)
@@ -78,8 +31,9 @@ class FeaturedImageModel(models.Model):
 class SocialResponsibilityModel(models.Model):  
     title = models.CharField(max_length=255)
     status = models.BooleanField(default=False)
-    image = models.ImageField(upload_to='social_responsibility_images/')
     content = models.TextField(blank=True, null=True)
+    content2 = models.TextField(blank=True, null=True)
+
     user = models.ForeignKey(User,
                             on_delete=models.SET_NULL,
                             related_name='social_responsibility_users_field',
