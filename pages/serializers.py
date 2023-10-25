@@ -20,7 +20,7 @@ class BannerSerializer(serializers.ModelSerializer):
 class WhoAreWeSerializer(serializers.ModelSerializer):
     class Meta:
         model = WhoAreWeModel
-        fields = ['id', 'status', 'name', 'description', 'created_at', 'updated_at', 'user']
+        fields = '__all__'
 
 class CertificationSerializer(serializers.ModelSerializer):
     class Meta:
