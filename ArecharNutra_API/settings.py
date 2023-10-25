@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xh4(+2b^%)riyoy3_66=dghbc===*@xchxu7fjtq32+dh2d#w7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*',]
 
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages',
-    'arechar_nutra', 
+    'arechar_nutra',
     'faq',
     'rest_framework',
     'ckeditor',
