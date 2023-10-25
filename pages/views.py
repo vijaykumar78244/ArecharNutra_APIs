@@ -91,12 +91,12 @@ class NestedDataView(APIView):
                     },
                     "who_are_we_data": {
                         "title": "Who Are We",
-                        "content": "dfdjfsfs", 
+                        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At, maxime ipsa fugiat mollitia amet enim nisi maiores quidem magnam sit voluptatum impedit necessitatibus quae voluptatibus placeat itaque quis praesentium dignissimos.", 
                         "data": WhoAreWeSerializer(who_are_we_data, many=True).data,
                     },
                     "certification_data": {
-                        "title": "Certification Data",
-                        "content": "dfdjfsfs", 
+                        "title": "Certification",
+                        "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At, maxime ipsa fugiat mollitia amet enim nisi maiores quidem magnam sit voluptatum impedit necessitatibus quae voluptatibus placeat itaque quis praesentium dignissimos.", 
                         "data": CertificationSerializer(certification_data, many=True).data,
                     },
                 }
