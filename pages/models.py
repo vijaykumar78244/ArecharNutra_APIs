@@ -22,7 +22,7 @@ class PageContentModel(models.Model):
     user = models.ForeignKey(User,
                             on_delete=models.CASCADE,
                             related_name='page_contents',
-                            related_query_name='review_user_field')
+                            related_query_name='page_contents_user_field')
     title = models.CharField(max_length=255)
     content = RichTextField()
     created_at = models.DateTimeField(name="created_at", verbose_name="Created At", auto_now_add=True)
@@ -33,7 +33,7 @@ class PageContentModel(models.Model):
         PageTypeModel,
         on_delete=models.SET_NULL,  
         related_name='page_content',
-        verbose_name="Page Type",
+        verbose_name="Page Content",
         null=True  
     )
 
@@ -41,14 +41,14 @@ class PageContentModel(models.Model):
         return self.title
 
     class Meta:
-        db_table = 'page_review'
+        db_table = 'page_content'
         ordering = ['-created_at']
         verbose_name = _("Page Content")
         verbose_name_plural = _("Page Contents")
+        
 
 class BannerModel(models.Model):
     status = models.BooleanField(default=False) 
-    name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     description_bottom = models.TextField(blank=True, null=True)
     user = models.ForeignKey(User,

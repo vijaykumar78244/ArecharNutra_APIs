@@ -86,7 +86,7 @@ class NestedDataView(APIView):
             "context": {
                 "success": {
                     "banner_data": {
-                        "title": "Banner Data",
+                        "title": "The",
                         "banner_data": BannerSerializer(banner_data, many=True).data,   
                     },
                     "who_are_we_data": {

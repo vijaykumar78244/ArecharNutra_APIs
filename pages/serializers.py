@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from .models import *
+from django.conf import settings
+
 
 class PageTypeSerializer(serializers.ModelSerializer):
     class Meta:
@@ -22,10 +24,26 @@ class WhoAreWeSerializer(serializers.ModelSerializer):
         model = WhoAreWeModel
         fields = '__all__'
 
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        if instance.image:
+            image_path = instance.image.url
+            full_image_url = f"{settings.BASE_URL}{image_path}" 
+            data['image'] = full_image_url
+        return data
+
 class CertificationSerializer(serializers.ModelSerializer):
     class Meta:
         model = CertificationModel
         fields = '__all__'
+        
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        if instance.image:
+            image_path = instance.image.url
+            full_image_url = f"{settings.BASE_URL}{image_path}" 
+            data['image'] = full_image_url
+        return data
 
 
 class ParentSerializer(serializers.Serializer):
