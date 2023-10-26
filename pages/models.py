@@ -60,7 +60,7 @@ class BannerModel(models.Model):
     updated_at = models.DateTimeField(name="updated_at", verbose_name="Updated At", auto_now=True)
     
     def __str__(self):
-        return self.name
+        return str(self.user)
 
     class Meta:
         db_table = 'banner'
